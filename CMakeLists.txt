@@ -12,3 +12,14 @@ AUX_SOURCE_DIRECTORY(./src SRC_LIST)
 
 #生成应用程序 hello (在windows下会自动生成hello.exe)
 ADD_EXECUTABLE(ocr ${SRC_LIST})
+
+
+#gflags
+SET(gflags_DIR "C:/ThirdParty/gflags/build")
+FIND_PACKAGE(gflags)
+if(gflags_FOUND)
+    include_directories(${gflags_INCLUDE_DIR})
+    target_link_libraries(ocr ${gflags_LIBRARIES})
+else(gflags_FOUND)
+    message(FATAL_ERROR ”gflags library not found”)
+endif(gflags_FOUND)
