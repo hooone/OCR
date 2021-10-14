@@ -16,10 +16,13 @@ ADD_EXECUTABLE(ocr ${SRC_LIST})
 
 #gflags
 SET(gflags_DIR "C:/ThirdParty/gflags/build")
-FIND_PACKAGE(gflags)
-if(gflags_FOUND)
-    include_directories(${gflags_INCLUDE_DIR})
-    target_link_libraries(ocr ${gflags_LIBRARIES})
-else(gflags_FOUND)
-    message(FATAL_ERROR ”gflags library not found”)
-endif(gflags_FOUND)
+FIND_PACKAGE(gflags REQUIRED)
+include_directories(${gflags_INCLUDE_DIR})
+target_link_libraries(ocr ${gflags_LIBRARIES})
+
+
+#OPENCV
+SET(OpenCV_DIR "C:/opencv/mybuild")
+FIND_PACKAGE(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+target_link_libraries(ocr ${OpenCV_LIBS})
