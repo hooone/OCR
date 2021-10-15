@@ -16,11 +16,12 @@ namespace PaddleOCR
             this->label_list_.insert(this->label_list_.begin(),
                                      "#"); // blank char for ctc
             this->label_list_.push_back(" ");
-            for (std::vector<std::string>::const_iterator iter = label_list_.cbegin(); iter != label_list_.cend(); iter++)
-            {
-                std::cout << (*iter) << std::endl;
-            }
+
+            LoadModel(model_dir);
         };
+
+        // Load Paddle inference model
+        void LoadModel(const std::string &model_dir);
 
     private:
         int cpu_math_library_num_threads_ = 4;
