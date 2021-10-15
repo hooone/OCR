@@ -5,10 +5,14 @@
 #include <opencv2/imgproc.hpp>
 #include <gflags/gflags.h>
 
+#include <include/ocr_rec.h>
+
 using namespace std;
 using namespace cv;
 
 DEFINE_string(image_path, "C:/Users/hooone/Pictures/mhd/vsop.jpg", "Path of input image.");
+DEFINE_string(rec_model_dir, "./model/", "Path of char model.");
+DEFINE_string(char_list_file, "./model/en_dict.txt", "Path of char dict.");
 
 /// 检查是否指定了图片
 void check_params()
@@ -22,10 +26,8 @@ void check_params()
 
 int main_rec(cv::String cv_all_img_name)
 {
-    Mat image = imread(cv_all_img_name);
-    namedWindow("img");
-    imshow("img", image);
-    waitKey(0);
+    PaddleOCR::CRNNRecognizer rec(FLAGS_rec_model_dir, FLAGS_char_list_file);
+    return 0;
 }
 
 int main(int argc, char **argv)

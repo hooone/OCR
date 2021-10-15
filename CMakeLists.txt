@@ -8,6 +8,7 @@ PROJECT(OCR)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -std=c++11)
 
 #把当前目录(.)下所有源代码文件和头文件加入变量SRC_LIST
+include_directories("${CMAKE_SOURCE_DIR}/")
 AUX_SOURCE_DIRECTORY(./src SRC_LIST)
 
 #生成应用程序 hello (在windows下会自动生成hello.exe)
