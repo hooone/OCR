@@ -6,12 +6,13 @@ namespace PaddleOCR
 {
     void CRNNRecognizer::LoadModel(const std::string &model_dir)
     {
+        // TODO:
         //   AnalysisConfig config;
-        paddle_infer::Config config;
-        config.SetModel(model_dir + "/inference.pdmodel",
-                        model_dir + "/inference.pdiparams");
+        // paddle_infer::Config config;
+        // config.SetModel(model_dir + "/inference.pdmodel",
+        //                 model_dir + "/inference.pdiparams");
 
-        this->predictor_ = CreatePredictor(config);
+        // this->predictor_ = CreatePredictor(config);
     }
     PD_INFER_DECL std::shared_ptr<paddle_infer::Predictor> CreatePredictor(
         const paddle_infer::Config &config); // NOLINT
