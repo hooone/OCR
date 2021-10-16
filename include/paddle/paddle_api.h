@@ -12,6 +12,8 @@ namespace paddle
     public:
         struct Config;
         PaddlePredictor() = default;
+        PaddlePredictor(const PaddlePredictor &) = delete;
+        PaddlePredictor &operator=(const PaddlePredictor &) = delete;
 
         /// Base class for NativeConfig and AnalysisConfig.
         struct Config

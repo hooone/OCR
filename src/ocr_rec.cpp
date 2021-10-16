@@ -10,5 +10,9 @@ namespace PaddleOCR
         paddle_infer::Config config;
         config.SetModel(model_dir + "/inference.pdmodel",
                         model_dir + "/inference.pdiparams");
+
+        this->predictor_ = CreatePredictor(config);
     }
+    PD_INFER_DECL std::shared_ptr<paddle_infer::Predictor> CreatePredictor(
+        const paddle_infer::Config &config); // NOLINT
 }
